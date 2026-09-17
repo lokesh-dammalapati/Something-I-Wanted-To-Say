@@ -1,0 +1,422 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    overflow: hidden;
+    font-family: Arial, sans-serif;
+    color: white;
+    background: #08050c;
+}
+
+/* BACKGROUND PARTICLES */
+
+#particles {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.particle {
+    position: absolute;
+    color: #ffb3d9;
+    opacity: 0.5;
+    animation: particleFloat 7s linear infinite;
+}
+
+
+/* ALL SCREENS */
+
+.screen {
+    position: absolute;
+    inset: 0;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    text-align: center;
+    padding: 25px;
+
+    opacity: 0;
+    visibility: hidden;
+
+    transform: scale(0.9);
+    transition: all 0.8s ease;
+
+    z-index: 2;
+}
+
+.screen.active {
+    opacity: 1;
+    visibility: visible;
+    transform: scale(1);
+}
+
+
+/* TEXT */
+
+h1 {
+    font-size: 44px;
+    margin-bottom: 22px;
+    text-shadow: 0 0 25px #ff65b5;
+    animation: titleIn 1s ease;
+}
+
+h2 {
+    margin-top: 25px;
+    font-size: 25px;
+    color: #ff9ed0;
+}
+
+p {
+    font-size: 20px;
+    line-height: 1.8;
+    color: #f8dce9;
+    max-width: 850px;
+    animation: textIn 1.2s ease;
+}
+
+p span {
+    color: #ff91c8;
+    font-weight: bold;
+}
+
+
+/* HEART */
+
+.heart {
+    font-size: 80px;
+    margin-bottom: 25px;
+    animation: heartbeat 2s infinite;
+    filter: drop-shadow(0 0 25px #ff3f9e);
+}
+
+.glow {
+    font-size: 65px;
+    margin-bottom: 25px;
+    animation: floating 3s ease-in-out infinite;
+}
+
+
+/* BUTTON */
+
+button {
+    margin-top: 32px;
+    padding: 15px 34px;
+
+    border: none;
+    border-radius: 50px;
+
+    color: white;
+    font-size: 17px;
+
+    background: linear-gradient(135deg, #ff4f9a, #a855f7);
+
+    cursor: pointer;
+
+    box-shadow: 0 0 20px rgba(255, 79, 154, 0.6);
+
+    transition: 0.3s;
+}
+
+button:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 40px rgba(255, 79, 154, 0.9);
+}
+
+button:active {
+    transform: scale(0.92);
+}
+
+
+/* MUSIC BUTTON */
+
+.music-btn {
+    position: fixed;
+
+    top: 20px;
+    right: 20px;
+
+    width: 48px;
+    height: 48px;
+
+    margin: 0;
+    padding: 0;
+
+    border-radius: 50%;
+
+    font-size: 20px;
+
+    background: rgba(255, 255, 255, 0.15);
+
+    backdrop-filter: blur(10px);
+
+    z-index: 1000;
+}
+
+
+/* FALLING HEARTS */
+
+.falling-heart {
+    position: fixed;
+
+    top: -60px;
+
+    pointer-events: none;
+
+    z-index: 100;
+
+    animation: fall linear forwards;
+}
+
+
+/* SPARKLES */
+
+.sparkle {
+    position: fixed;
+
+    pointer-events: none;
+
+    z-index: 200;
+
+    font-size: 22px;
+
+    animation: sparkle 1.2s ease-out forwards;
+}
+
+
+/* CURSOR HEART */
+
+.cursor-heart {
+    position: fixed;
+
+    pointer-events: none;
+
+    z-index: 300;
+
+    font-size: 16px;
+
+    color: #ff82bd;
+
+    animation: cursorHeart 0.8s ease-out forwards;
+}
+
+
+/* TYPING */
+
+.typing {
+    overflow: hidden;
+    border-right: 2px solid #ff8fc8;
+    white-space: nowrap;
+
+    animation:
+        typing 3s steps(40, end),
+        blink 0.7s infinite;
+}
+
+
+/* DIFFERENT SCREEN BACKGROUNDS */
+
+#screen1 {
+    background: radial-gradient(circle, #461b3d, #08050c);
+}
+
+#screen2 {
+    background: radial-gradient(circle, #351c46, #090611);
+}
+
+#screen3 {
+    background: radial-gradient(circle, #44203b, #09050d);
+}
+
+#screen4 {
+    background: radial-gradient(circle, #20394a, #070b12);
+}
+
+#screen5 {
+    background: radial-gradient(circle, #4b2441, #0c0710);
+}
+
+#screen6 {
+    background: radial-gradient(circle, #39244d, #090611);
+}
+
+#screen7 {
+    background: radial-gradient(circle, #34243f, #08060d);
+}
+
+#screen8 {
+    background: radial-gradient(circle, #1f3444, #060a10);
+}
+
+#screen9 {
+    background: radial-gradient(circle, #47233e, #0b060e);
+}
+
+#screen10 {
+    background: radial-gradient(circle, #4b203c, #0b050c);
+}
+
+#screen11 {
+    background: radial-gradient(circle, #241d42, #070611);
+}
+
+#screen12 {
+    background: radial-gradient(circle, #45213d, #09050c);
+}
+
+#screen13 {
+    background: radial-gradient(circle, #591c42, #0b050d);
+}
+
+#screen14 {
+    background: radial-gradient(circle, #641b45, #0b050d);
+}
+
+
+/* ANIMATIONS */
+
+@keyframes heartbeat {
+    0%, 100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.2);
+    }
+}
+
+@keyframes floating {
+    0%, 100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-18px);
+    }
+}
+
+@keyframes titleIn {
+    from {
+        opacity: 0;
+        transform: translateY(-35px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes textIn {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fall {
+    from {
+        transform: translateY(-60px) rotate(0deg);
+        opacity: 1;
+    }
+
+    to {
+        transform: translateY(110vh) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+@keyframes sparkle {
+    from {
+        transform: scale(0.2);
+        opacity: 1;
+    }
+
+    to {
+        transform:
+            translate(var(--x), var(--y))
+            scale(1.8);
+        opacity: 0;
+    }
+}
+
+@keyframes cursorHeart {
+    from {
+        transform: translateY(0) scale(1);
+        opacity: 1;
+    }
+
+    to {
+        transform: translateY(-35px) scale(0.3);
+        opacity: 0;
+    }
+}
+
+@keyframes particleFloat {
+    from {
+        transform: translateY(100vh);
+    }
+
+    to {
+        transform: translateY(-10vh);
+    }
+}
+
+@keyframes typing {
+    from {
+        width: 0;
+    }
+
+    to {
+        width: 100%;
+    }
+}
+
+@keyframes blink {
+    50% {
+        border-color: transparent;
+    }
+}
+
+
+/* MOBILE */
+
+@media (max-width: 600px) {
+
+    h1 {
+        font-size: 32px;
+    }
+
+    h2 {
+        font-size: 21px;
+    }
+
+    p {
+        font-size: 17px;
+    }
+
+    .heart {
+        font-size: 60px;
+    }
+
+    .glow {
+        font-size: 50px;
+    }
+
+    button {
+        font-size: 15px;
+        padding: 13px 27px;
+    }
+}
